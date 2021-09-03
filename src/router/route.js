@@ -56,7 +56,10 @@ router.post("/login", async (req, res) => {
 		if (!validPassword)
 			return res.status(400).send("password mismatch");
 
-		var token = jwt.sign({ _id: User._id }, process.env.SECRET_KEY);
+		var token = await jwt.sign(
+			{ _id: User._id },
+			process.env.SECRET_KEY
+		);
 		res.header("auth-token", token).send(token);
 		// res.cookie("auth-token", token);
 		// res.send("logged in");
