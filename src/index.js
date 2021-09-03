@@ -8,7 +8,7 @@ const postRouter = require("./router/post");
 
 app.use(express.json());
 
-// app.get("/", (req, res) => res.send("Hello World!"));
+app.get("/", (req, res) => res.send("Hello World!"));
 
 app.use("/api/user", authrouter);
 app.use("/api", postRouter);
